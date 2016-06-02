@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="_assets/style.css" type="text/css">
+    <script src="_assets/jquery-1.12.3.min.js" type="text/javascript"></script>
+    <script src="_assets/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="rio-calc">
+
+    <div class="rioProgessbar rio-page" data-page="bar">
+        <ul>
+            <li >Current Business Profile</li>
+            <li>Your Usage Fees</li>
+            <li>Your system</li>
+        </ul>
+    </div>
+
+    <div class="clearB"></div>
+    <div class="stepform">
+        <fieldset class="rio-page" data-page='1'>
+            <h2>Welcome to RIO Calculator</h2>
+            <p>in just a few quick steps, see how much can save
+                your business compared to the cost of an on-premise PBX.
+                Fill in the form that follows using your business phone bill.
+            </p>
+            <p>Lets get started</p>
+            <label for="purchase-kind">How did you purchase your phone system?</label>
+            <select name="purch-kind" id="purchase-kind" required>
+                <option value="" disabled selected>Select your option</option>
+                <option value="lease">Lease</option>
+                <option value="buy">Buy</option>
+            </select> <br>
+            <input type="button" class="stepform-red"  value="Continue" onclick="CostumerCost();rioNextPage(this)">
+        </fieldset>
+        <div class="stepform-left">
+            <fieldset class="fieldset-width rio-page" data-page="2">
+                <div class="alert alert-warning alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <strong>Warning!</strong> Enter a number, or 0 if not applicable. All fields are mandatory.
+                </div>
+                <label for="location-count">How many locations do you have?</label>
+                <input type="number" id="location-count" required >
+                <br>
+                <label for="employee-count">How many total employees work at
+                    those locations?</label>
+                <input type="number" id="employee-count" oninput="TotalMonthlyCost()" required >
+                <br>
+                <label for="employees-r">How many employees work from
+                    home or remotely?</label>
+                <input type="number" id="employees-r" oninput="TotalMonthlyCost()" required >
+                <br>
+                <input type="button"  value="Previous" onclick="rioPrevPage()" >
+                <input type="button" class="stepform-red " value="Next" onclick="rioNextPage(this);TotalMonthlyCost()">
+            </fieldset>
+
+            <fieldset class="rio-page" data-page="3">
+                <div class="alert alert-warning alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <strong>Warning!</strong> Enter a number, or 0 if not applicable. All fields are mandatory.
+                </div>
+                <label for="LongdistanceC">Local and long-distance calling costs</label>
+                <input type="range" min="0" max="999" value="200" id="RangeLongdistanceC" oninput="LongdistanceC.value = this.value" onchange="CostumerCost()">
+                <input type="number" value="200" id="LongdistanceC" onchange="CostumerCost()" oninput="RangeLongdistanceC.value = this.value">
+                <br>
+
+                <label for="tollC">Toll-free costs</label>
+                <input type="range" min="0" max="999" value="200" id="RtollC" oninput="tollC.value = this.value" onchange="CostumerCost()">
+                <input type="number" id="tollC" onchange="CostumerCost()" oninput="RtollC.value = this.value" value="200">
+                <br>
+
+                <label for="phoneNumberC">Phone numbers (DIDs) costs</label>
+                <input type="range" min="0" max="999" value="200" id="RphoneNumberC" oninput="phoneNumberC.value = this.value" onchange="CostumerCost()">
+                <input type="number" id="phoneNumberC" onchange="CostumerCost()" oninput="RphoneNumberC.value = this.value" value="200">
+                <br>
+
+                <label for="faxC">Fax Cost</label>
+                <input type="range" min="0" max="999" value="200" id="RfaxC" oninput="faxC.value = this.value" onchange="CostumerCost()">
+                <input type="number" id="faxC" onchange="CostumerCost()" oninput="RfaxC.value = this.value" value="200">
+                <br>
+
+                <input type="button" class="previous" value="Previous" onclick="rioPrevPage()">
+                <input type="button" class="next stepform-red " value="Next" onclick="rioNextPage()">
+            </fieldset>
+            <fieldset class="rio-page" data-page="4">
+                <div class="alert alert-warning alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <strong>Warning!</strong> Enter a number, or 0 if not applicable. All fields are mandatory.
+                </div>
+                <label for="ttlC">Telecom Trunk Line</label>
+                <input type="range" min="0" max="999" value="200" id="RttlC" oninput="ttlC.value = this.value" onchange="CostumerCost()">
+                <input type="number" id="ttlC" onchange="CostumerCost()" oninput="RttlC.value = this.value" value="200" >
+                <br>
+
+                <label for="msC">Maintenance and support costs</label>
+                <input type="range" min="0" max="999" value="200" id="RmsC" oninput="msC.value = this.value" onchange="CostumerCost()">
+                <input type="number" id="msC" onchange="CostumerCost()" oninput="RmsC.value = this.value" value="200">
+                <br>
+
+                <label for="additionC">Additional one-time costs</label>
+                <input type="range" min="0" max="999" value="200" id="RadditionC" oninput="additionC.value = this.value" onchange="CostumerCost()">
+                <input type="number" id="additionC" onchange="CostumerCost()" oninput="RadditionC.value = this.value" value="200">
+                <br>
+
+                <label for="leaseC">Lease costs</label>
+                <input type="range" min="0" max="999" value="200" id="RleaseC" oninput="leaseC.value = this.value" onchange="CostumerCost()">
+                <input type="number" id="leaseC" onchange="CostumerCost()" oninput="RleaseC.value = this.value" value="200">
+                <br>
+
+                <label for="staffC">IT Staffing costs (Professional services)</label>
+                <input type="range" min="0" max="999" value="200" id="RstaffC" oninput="staffC.value = this.value" onchange="CostumerCost()">
+                <input type="number" id="staffC" onchange="CostumerCost()" oninput="RstaffC.value = this.value" value="200" >
+                <br>
+
+                <input type="button" class="previous" value="Previous" onclick="rioPrevPage()">
+                <a href="#ninja-popup-722"><input type="button" class="next stepform-red" value="View saving Report" onclick="statement();rioNextPage();rioFeedback()"></a>
+            </fieldset>
+        </div>
+        <div class="stepform-right rio-page" data-page="bar">
+            <div class="result">
+                <p>Phone Savings</p>
+                <table class="rc-result">
+                    <tbody>
+                    <tr>
+                        <td width="100px"></td>
+                        <td>Office</td>
+                        <td>On-Premise</td>
+                    </tr>
+                    <tr>
+                        <td>Total Monthly Cost</td>
+                        <td><span class="total-monthly-cost">$0</span></td>
+                        <td class="monthly-onPremis">$0</td>
+                    </tr>
+                    <tr>
+                        <td>Your 2-Year Savings</td>
+                        <td>
+												<span class="CostSaving-absolute">
+													$0
+												</span><br>
+												<span class="CostSaving-persantage">
+													you save 0$
+												</span>
+                        </td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="stepform-right-buttom">
+
+                    <input type="radio" name="purch-p" value="longterm-contract" checked id="2year-c" onchange="TotalMonthlyCost()">
+                    <label for="2year-c">Monthly, 2-year contract</label>
+                    <div class="check-radio"></div>
+                    <br>
+
+                    <input type="radio" name="purch-p" value="no-contract" id="non-c" onchange="TotalMonthlyCost()">
+                    <label for="non-c">Monthly, non contract</label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="clearB"></div>
+    <div class="statement rio-page" data-page="5">
+        <h2>Thank you for your interest!</h2>
+        <p>Your report has been sent to you. A solutions specialist will contact you shortly regarding your savings.</p>
+        <table class="statement-table">
+            <tr class="head-td">
+                <td>11-User Phone System Comparison</td>
+                <td>Office</td>
+                <td>On-Premise PBX</td>
+            </tr>
+            <tr>
+                <td>Up-Front Costs</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>On-premise hardware - PBX, server cards<sup>1</sup></td>
+                <td>0$</td>
+                <td>N/A</td>
+            </tr>
+            <tr>
+                <td>PBX software licenses<sup>1</sup></td>
+                <td>0$</td>
+                <td>N/A</td>
+            </tr>
+            <tr>
+                <td>One-time phone cost<sup>2</sup></td>
+                <td>0$</td>
+                <td>N/A</td>
+            </tr>
+            <tr>
+                <td>Setup and implementation per location</td>
+                <td>FREE</td>
+                <td>N/A</td>
+            </tr>
+            <tr>
+                <td>Phone configuration</td>
+                <td>FREE</td>
+                <td>N/A</td>
+            </tr>
+            <tr>
+                <td>Integrations with Microsoft Office and Microsoft Outlook</td>
+                <td>FREE</td>
+                <td>N/A</td>
+            </tr>
+            <tr>
+                <td>Integrations with Box, GoogleDocs, Dropbox</td>
+                <td>FREE</td>
+                <td>N/A</td>
+            </tr>
+            <tr>
+                <td>Monthly Cost</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Telecom trunk Lines</td>
+                <td>0$</td>
+                <td><span id="ttlC-show"></span></td>
+            </tr>
+            <tr>
+                <td>Lease costs</td>
+                <td>0$</td>
+                <td><span id="leaseC-show"></span></td>
+            </tr>
+            <tr>
+                <td>All Inclusive pricing</td>
+                <td><span class="total-monthly-cost">0$</span></td>
+                <td>N/A</td>
+            </tr>
+            <tr>
+                <td>Unlimited local and long distance calling</td>
+                <td>FREE</td>
+                <td><span id="LongdistanceC-show"></span></td>
+            </tr>
+            <tr>
+                <td>Unlimited Internet fax</td>
+                <td>FREE</td>
+                <td><span id="faxC-show"></span></td>
+            </tr>
+            <tr>
+                <td>Local numbers for each user</td>
+                <td>FREE</td>
+                <td><span id="phoneNumberC-show"></span></td>
+            </tr>
+            <tr>
+                <td>Toll-free number and minutes</td>
+                <td>FREE</td>
+                <td><span id="tollC-show"></span></td>
+            </tr>
+            <tr>
+                <td>24/7 live support</td>
+                <td>FREE</td>
+                <td><span id="msC-show"></span></td>
+            </tr>
+            <tr>
+                <td>"Touch" management on iPhone, Android, and BlackBerry</td>
+                <td>FREE</td>
+                <td>N/A</td>
+            </tr>
+            <tr>
+                <td>Presence across multiple devices<sup>3</sup></td>
+                <td>FREE</td>
+                <td>N/A</td>
+            </tr>
+            <tr>
+                <td>Ongoing system management and configuration</td>
+                <td>FREE</td>
+                <td><span id="staffC-show"></span></td>
+            </tr>
+            <tr>
+                <td>Additional one-time costs</td>
+                <td>FREE</td>
+                <td><span id="additionC-show"></span></td>
+            </tr>
+            <tr >
+                <td style="text-align: right;">Total Monthly Cost</td>
+                <td><span class="total-monthly-cost"></span></td>
+                <td><span class="monthly-onPremis"></span></td>
+            </tr>
+            <tr >
+                <td style="text-align: right;">Total 2-Year Cost</td>
+                <td><span id="l-cost-us"></span></td>
+                <td><span id="l-cost-you"></span></td>
+            </tr>
+            <tr class="head-td">
+                <td style="text-align: right;">Total 2-Year Savings</td>
+                <td>
+                    <span class="CostSaving-absolute"></span><br>
+                    <span class="CostSaving-persantage"></span>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+        <a href="#">Start over</a>
+    </div>
+</div>
+
+</div>
+</body>
+</html>
