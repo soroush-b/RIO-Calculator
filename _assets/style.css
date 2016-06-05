@@ -1,101 +1,3 @@
-/*
-Theme Name: Porto
-Theme URI: http://newsmartwave.net/wordpress/porto
-Author: SW-THEMES
-Author URI: http://newsmartwave.net/
-Description: Porto Responsive Wordpress + Woocommerce Theme.
-Version: 2.8.3
-License: Commercial
-License URI: http://themeforest.net/licenses/regular_extended
-Tags: woocommerce, corporate, ecommerce, responsive, blue, black, green, white, light, dark, red, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, fixed-layout, responsive-layout, custom-menu, editor-style, featured-images, flexible-header, full-width-template, microformats, post-formats, rtl-language-support, sticky-post, theme-options, translation-ready, accessibility-ready
-Text Domain: porto
-
-*/
-
-video { display: block; }
-/****Changes****/
-#topcontrol{
-    left:10px !important;
-}
-html .pricing-table .plan-secondary h3{
-    background-color:#cc181e !important;
-}
-.modal-img-hover:hover{opacity:0.7;cursor:pointer;}
-.table-hover{
-    opacity:0.8;
-}
-.table-hover:hover{
-    opacity:1;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    -ms-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    transition: all 0.3s;
-    cursor: pointer;
-    -webkit-transform: translateY(-15px);
-    -moz-transform: translateY(-15px);
-    -ms-transform: translateY(-15px);
-    -o-transform: translateY(-15px);
-    transform: translateY(-15px);
-}
-.menu-call-me{
-    display: none;
-    right: 48px !important;
-}
-.menu-call-me a{
-    color:#cc181e !important;
-    line-height: 18px !important;
-    border: 1px solid #cc181e;
-    -webkit-border-radius:5px;
-    -moz-border-radius:5px;
-    border-radius:5px;
-
-}
-.menu-call-me a:hover{
-    background-color:#cc181e !important;
-    color:#ffffff !important;
-
-}
-/****************** Sticky Sub menu *********************/
-.sticky-submenu{
-    z-index:100;
-    width:100%;
-    background-color: #fafafa;
-    background-image: -moz-linear-gradient(top, #f6f6f6, #ffffff);
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f6f6f6), to(#ffffff));
-    background-image: -webkit-linear-gradient(top, #f6f6f6, #ffffff);
-    background-image: -o-linear-gradient(top, #f6f6f6, #ffffff);
-    background-image: linear-gradient(to bottom, #f6f6f6, #ffffff);
-    background-repeat: repeat-x;
-}
-.sticky-submenu ul{
-    width:760px;
-    margin:auto;
-    border-bottom: 1px solid #0088CC;
-    padding: 0 !important;
-}
-.sticky-submenu ul li{
-    display: inline-block;
-    list-style-type: none;
-}
-
-.sticky-submenu ul li a{
-    height: 69px;
-    line-height: 71px;
-    color: #585858;
-    font-size: 14px;
-    margin: 0 11px;
-    display: block;
-    text-decoration: none;
-    box-sizing: border-box;
-}
-.sticky-submenu ul li a:hover,.active-submenu{
-    border-bottom: 2px solid #0088CC;
-    color: #0088CC !important;
-}
-/*************** ADD YOUR CUSTOM CSS HERE  ***************/
-.bypostauthor {}
-
 /*RIO Calculator css*/
 .rio-calc{
     width: 900px;
@@ -104,10 +6,8 @@ html .pricing-table .plan-secondary h3{
     padding: 10px;
     font-family: sans-serif;
     background-color: transparent;
-
 }
 .stepform{
-
     padding: 10px;
     border-radius: 10px;
 }
@@ -403,7 +303,7 @@ table.rc-result td{
     background-color: #EBECEF;
     position: absolute;
     left: -50%;
-    top: 22px;
+    top: 30px;
     z-index: 140;
 }
 .rioProgessbar li:first-child:after{
@@ -416,7 +316,6 @@ table.rc-result td{
 .rioProgessbar li.rioactive-p:after{
     background-color: #0088CC !important;
 }
-
 /*multi page*/
 .rio-page{
     display:none;
