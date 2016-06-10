@@ -1,16 +1,16 @@
 /*RIO Calculator css*/
-.rio-calc{
-    width: 900px;
-    margin: 10px auto;
-    box-sizing: border-box;
-    padding: 10px;
-    font-family: sans-serif;
-    background-color: transparent;
-}
-.stepform{
-    padding: 10px;
-    border-radius: 10px;
-}
+/*.rio-calc{*/
+    /*width: 900px;*/
+    /*margin: 10px auto;*/
+    /*box-sizing: border-box;*/
+    /*padding: 10px;*/
+    /*font-family: sans-serif;*/
+    /*background-color: transparent;*/
+/*}*/
+/*.stepform{*/
+    /*padding: 10px;*/
+    /*border-radius: 10px;*/
+/*}*/
 .stepform-left{
     box-sizing: border-box;
     width:60%;
@@ -35,67 +35,66 @@
 .stepform-right{
     background: url(riocalc.png) no-repeat bottom right #0088CC;
     color: #FFFFFF;
-    float: right;
     box-sizing: border-box;
-    width: 40%;
-    padding: 10px 4px 10px 27px;
     min-height: 400px;
-    position: relative;
     padding-left: 33px !important;
 
 }
-table.rc-result{
-    border-collapse: collapse;
-    width: 100%;
+.text-left{
+    text-align: left !important;
 }
-table.rc-result td{
-    text-align: center;
-    padding: 15px 0;
-}
+/*table.rc-result{*/
+    /*border-collapse: collapse;*/
+    /*width: 100%;*/
+/*}*/
+/*table.rc-result td{*/
+    /*text-align: center;*/
+    /*padding: 15px 0;*/
+/*}*/
 
-.stepform fieldset{
-    background-color: #FFFFFF;
-    box-sizing: border-box;
-    min-height: 400px;
-    position: relative;
-    border:none;
-}
+/*.stepform fieldset{*/
+    /*background-color: #FFFFFF;*/
+    /*box-sizing: border-box;*/
+    /*min-height: 400px;*/
+    /*position: relative;*/
+    /*border:none;*/
+/*}*/
 /*inputs*/
-.stepform input:hover{
-    opacity: 0.8;
-    transition: all 0.3s;
-}
-.stepform input[type=number]{
-    width: 50px;
-    height: 35px;
-    padding-left: 15px;
-    font-size: 12px;
-    font-weight: bold;
-    color: #FFFFFF;
-    background-color: #0088CC;
-    text-align: center;
-    border: none;
-    border-radius: 2px;
-}
-.stepform label{
-    display: inline-block;
-    width: 55%;
-    height: 40px;
-    cursor: pointer;
-}.fieldset-width label{
-     width: 80%;
- }.stepform-right label{
-      width:80%;
-      height: 20px;
-      border-bottom: 1px dotted rgba(255, 255, 255, 0.52);
-  }
-.stepform-right-buttom{
-    margin-top: 45px;
-}
+/*.stepform input:hover{*/
+    /*opacity: 0.8;*/
+    /*transition: all 0.3s;*/
+/*}*/
+/*.stepform input[type=number]{*/
+    /*width: 50px;*/
+    /*height: 35px;*/
+    /*padding-left: 15px;*/
+    /*font-size: 12px;*/
+    /*font-weight: bold;*/
+    /*color: #FFFFFF;*/
+    /*background-color: #0088CC;*/
+    /*text-align: center;*/
+    /*border: none;*/
+    /*border-radius: 2px;*/
+/*}*/
+/*.stepform label{*/
+    /*display: inline-block;*/
+    /*width: 55%;*/
+    /*height: 40px;*/
+    /*cursor: pointer;*/
+/*}.fieldset-width label{*/
+     /*width: 80%;*/
+ /*}.stepform-right label{*/
+      /*width:80%;*/
+      /*height: 20px;*/
+      /*border-bottom: 1px dotted rgba(255, 255, 255, 0.52);*/
+  /*}*/
+/*.stepform-right-buttom{*/
+    /*margin-top: 45px;*/
+/*}*/
 
 .stepform input[type=range] {
     -webkit-appearance: none;
-    width: 27%;
+    width: 100%;
     margin: 4.05px 0;
     display:inline-block;
 }
@@ -168,51 +167,51 @@ table.rc-result td{
     background: rgba(52, 152, 219, 0.78);
 }
 
-.stepform select{
-    width: 180px;
-    color: #FFFFFF;
-    background: transparent;
-    width: 200px;
-    padding: 5px 35px 5px 14px;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    height: 36px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background: url(down-arrow.png) 94% no-repeat #0088CC;
-    background-size: 16px;
-}
-.stepform input[type=button]{
-    box-sizing: border-box;
-    padding: 7px 19px;
-    font-size: 17px;
-    line-height: 1.471;
-    border-radius: 6px;
-    border: none;
-    color: #FFFFFF;
-    background-color: #0088CC;
-    cursor: pointer;
-    min-width: 140px;
-    margin-top: 25px;
-    position: absolute;
-    bottom: 0;
-}
-.stepform input[type=button]:focus{
-    outline: none;
-}
-.stepform input[type=button]:hover{
-    transition: all 0.6s;
-    -webkit-transition: all 0.6s;
-    -moz-transition: all 0.6s;
-    opacity: 0.8;
+/*.stepform select{*/
+    /*width: 180px;*/
+    /*color: #FFFFFF;*/
+    /*background: transparent;*/
+    /*width: 200px;*/
+    /*padding: 5px 35px 5px 14px;*/
+    /*font-size: 16px;*/
+    /*border: none;*/
+    /*border-radius: 4px;*/
+    /*height: 36px;*/
+    /*-webkit-appearance: none;*/
+    /*-moz-appearance: none;*/
+    /*appearance: none;*/
+    /*background: url(down-arrow.png) 94% no-repeat #0088CC;*/
+    /*background-size: 16px;*/
+/*}*/
+/*.stepform input[type=button]{*/
+    /*box-sizing: border-box;*/
+    /*padding: 7px 19px;*/
+    /*font-size: 17px;*/
+    /*line-height: 1.471;*/
+    /*border-radius: 6px;*/
+    /*border: none;*/
+    /*color: #FFFFFF;*/
+    /*background-color: #0088CC;*/
+    /*cursor: pointer;*/
+    /*min-width: 140px;*/
+    /*margin-top: 25px;*/
+    /*position: absolute;*/
+    /*bottom: 0;*/
+/*}*/
+/*.stepform input[type=button]:focus{*/
+    /*outline: none;*/
+/*}*/
+/*.stepform input[type=button]:hover{*/
+    /*transition: all 0.6s;*/
+    /*-webkit-transition: all 0.6s;*/
+    /*-moz-transition: all 0.6s;*/
+    /*opacity: 0.8;*/
 
-}
-.stepform-red{
-    background-color: #cc181e !important;
-    right: 15px;
-}
+/*}*/
+/*.stepform-red{*/
+    /*background-color: #cc181e !important;*/
+    /*right: 15px;*/
+/*}*/
 .stepform input[type=radio]{
     cursor: pointer;
 }
@@ -225,37 +224,37 @@ table.rc-result td{
 }
 
 /*statement*/
-.statement h2{
-    text-align: center;
-}
-.statement-table{
-    border-collapse: collapse;
-    width: 100%;
-    background-color: #ffffff;
-    cursor: pointer;
-}
+/*.statement h2{*/
+    /*text-align: center;*/
+/*}*/
+/*.statement-table{*/
+    /*border-collapse: collapse;*/
+    /*width: 100%;*/
+    /*background-color: #ffffff;*/
+    /*cursor: pointer;*/
+/*}*/
 
-.statement-table th, td {
-    text-align: left;
-    padding: 8px;
-}
-.statement-table tr:hover{
-    opacity: 0.9;
-    transition: all 0.3s;
-}
-.statement-table tr:nth-child(even){
-    background-color: #40B0E4;
-    color: #ffffff;
-}
-.statement-table tr:nth-child(odd){background-color: #41B8EF; color:#ffffff;}
+/*.statement-table th, td {*/
+    /*text-align: left;*/
+    /*padding: 8px;*/
+/*}*/
+/*.statement-table tr:hover{*/
+    /*opacity: 0.9;*/
+    /*transition: all 0.3s;*/
+/*}*/
+/*.statement-table tr:nth-child(even){*/
+    /*background-color: #40B0E4;*/
+    /*color: #ffffff;*/
+/*}*/
+/*.statement-table tr:nth-child(odd){background-color: #41B8EF; color:#ffffff;}*/
 
-.statement-table .head-td{
-    background-color: #cc181e !important;
-    line-height: 39px;
-}
-.statement-table td:not(:nth-child(1)){
-    text-align: center;
-}
+/*.statement-table .head-td{*/
+    /*background-color: #cc181e !important;*/
+    /*line-height: 39px;*/
+/*}*/
+/*.statement-table td:not(:nth-child(1)){*/
+    /*text-align: center;*/
+/*}*/
 
 /*progress bar*/
 .rioProgessbar{
@@ -293,7 +292,7 @@ table.rc-result td{
     position: absolute;
     z-index: 170;
     top: 0px;
-    right: 121px;
+    right: 163px;
     height: 55px;
 }
 .rioProgessbar li:after{

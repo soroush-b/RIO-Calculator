@@ -3,24 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>RIO Calculator</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="_assets/style.css" type="text/css">
-    <script   src="https://code.jquery.com/jquery-1.12.4.min.js"   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="   crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
     <script src="_assets/main.js" type="text/javascript"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+            integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+            crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="rio-calc">
 
-    <div class="rioProgessbar rio-page" data-page="bar">
-        <ul>
-            <li >Current Business Profile</li>
-            <li>Your Usage Fees</li>
-            <li>Your system</li>
-        </ul>
+<div class="container">
+
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="rioProgessbar rio-page" data-page="bar">
+                <ul>
+                    <li>Current Business Profile</li>
+                    <li>Your Usage Fees</li>
+                    <li>Your system</li>
+                </ul>
+            </div>
+        </div>
     </div>
-
-    <div class="clearB"></div>
     <div class="stepform">
         <fieldset class="rio-page" data-page='1'>
             <h2>Welcome to RIO Calculator</h2>
@@ -29,276 +37,404 @@
                 Fill in the form that follows using your business phone bill.
             </p>
             <p>Lets get started</p>
-            <label for="purchase-kind">How did you purchase your phone system?</label>
-            <select name="purch-kind" id="purchase-kind" required>
-                <option value="" disabled selected>Select your option</option>
-                <option value="lease">Lease</option>
-                <option value="buy">Buy</option>
-            </select> <br>
-            <input type="button" class="stepform-red"  value="Continue" onclick="CostumerCost();rioNextPage(this)">
+            <div class="row">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label for="purchase-kind" class=" control-label">How did you purchase your phone
+                            system?</label>
+
+                            <select name="purch-kind" id="purchase-kind" class="form-control" required>
+                                <option value="" disabled selected>Select your option</option>
+                                <option value="lease">Lease</option>
+                                <option value="buy">Buy</option>
+                            </select>
+
+                    </div>
+                    <div class="form-group">
+
+                    </div>
+                </form>
+                <input type="button" class="btn btn-primary col-sm-4 col-sm-offset-4 btn-lg" style="margin-top: 15px;" value="Continue"
+                       onclick="CostumerCost();rioNextPage(this)">
+            </div>
         </fieldset>
-        <div class="stepform-left">
-            <fieldset class="fieldset-width rio-page" data-page="2">
-                <div class="alert alert-warning alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                    <strong>Warning!</strong> Enter a number, or 0 if not applicable. All fields are mandatory.
-                </div>
-                <label for="location-count">How many locations do you have?</label>
-                <input type="number" id="location-count" required >
-                <br>
-                <label for="employee-count">How many total employees work at
-                    those locations?</label>
-                <input type="number" id="employee-count" oninput="TotalMonthlyCost()" required >
-                <br>
-                <label for="employees-r">How many employees work from
-                    home or remotely?</label>
-                <input type="number" id="employees-r" oninput="TotalMonthlyCost()" required >
-                <br>
-                <input type="button"  value="Previous" onclick="rioPrevPage()" >
-                <input type="button" class="stepform-red " value="Next" onclick="rioNextPage(this);TotalMonthlyCost()">
-            </fieldset>
+        <div class="row">
+            <div class="col-md-8">
+                <fieldset class=" rio-page" data-page="2">
 
-            <fieldset class="rio-page" data-page="3">
-                <div class="alert alert-warning alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                    <strong>Warning!</strong> Enter a number, or 0 if not applicable. All fields are mandatory.
-                </div>
-                <label for="LongdistanceC">Local and long-distance calling costs</label>
-                <input type="range" min="0" max="999" value="200" id="RangeLongdistanceC" oninput="LongdistanceC.value = this.value" onchange="CostumerCost()">
-                <input type="number" value="200" id="LongdistanceC" onchange="CostumerCost()" oninput="RangeLongdistanceC.value = this.value">
-                <br>
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <div class="alert alert-warning alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                        aria-hidden="true">×</span></button>
+                                <strong>Warning!</strong> number, or 0 if not applicable. All fields are mandatory.
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="location-count" class="text-left col-sm-10 control-label">How many locations do you
+                                have?</label>
+                            <div class="col-sm-2">
+                                <input type="number" id="location-count" class="form-control"
+                                       required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="employee-count" class="text-left col-sm-10 control-label">How many total employees work at
+                                those locations?</label>
+                            <div class="col-sm-2">
+                                <input type="number" id="employee-count" class="form-control" oninput="TotalMonthlyCost()"
+                                       required>
+                            </div>
+                        </div>
 
-                <label for="tollC">Toll-free costs</label>
-                <input type="range" min="0" max="999" value="200" id="RtollC" oninput="tollC.value = this.value" onchange="CostumerCost()">
-                <input type="number" id="tollC" onchange="CostumerCost()" oninput="RtollC.value = this.value" value="200">
-                <br>
+                        <div class="form-group">
+                            <label for="employees-r" class="text-left col-sm-10 control-label">How many employees work from
+                                home or remotely?</label>
+                            <div class="col-sm-2">
+                                <input type="number" id="employees-r" class="form-control"
+                                                          oninput="TotalMonthlyCost()" required>
+                            </div>                        </div>
+                        <div class="form-group">
+                            <input type="button" class="btn btn-primary" value="Previous" onclick="rioPrevPage()">
+                            <input type="button" class="btn btn-danger pull-right" value="Next"
+                                   onclick="rioNextPage(this);TotalMonthlyCost()">
+                        </div>
+                    </form>
 
-                <label for="phoneNumberC">Phone numbers (DIDs) costs</label>
-                <input type="range" min="0" max="999" value="200" id="RphoneNumberC" oninput="phoneNumberC.value = this.value" onchange="CostumerCost()">
-                <input type="number" id="phoneNumberC" onchange="CostumerCost()" oninput="RphoneNumberC.value = this.value" value="200">
-                <br>
 
-                <label for="faxC">Fax Cost</label>
-                <input type="range" min="0" max="999" value="200" id="RfaxC" oninput="faxC.value = this.value" onchange="CostumerCost()">
-                <input type="number" id="faxC" onchange="CostumerCost()" oninput="RfaxC.value = this.value" value="200">
-                <br>
+                </fieldset>
 
-                <input type="button" class="previous" value="Previous" onclick="rioPrevPage()">
-                <input type="button" class="next stepform-red " value="Next" onclick="rioNextPage()">
-            </fieldset>
-            <fieldset class="rio-page" data-page="4">
-                <div class="alert alert-warning alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                    <strong>Warning!</strong> Enter a number, or 0 if not applicable. All fields are mandatory.
-                </div>
-                <label for="ttlC">Telecom Trunk Line</label>
-                <input type="range" min="0" max="999" value="200" id="RttlC" oninput="ttlC.value = this.value" onchange="CostumerCost()">
-                <input type="number" id="ttlC" onchange="CostumerCost()" oninput="RttlC.value = this.value" value="200" >
-                <br>
+                <fieldset class="rio-page" data-page="3">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <div class="alert alert-warning alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                        aria-hidden="true">×</span></button>
+                                <strong>Warning!</strong> Enter a number, or 0 if not applicable. All fields are
+                                mandatory.
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="LongdistanceC" class="text-left control-label col-sm-5">Local and long-distance calling
+                            costs</label>
+                            <div class="col-sm-5 control-label">
+                                <input type="range" min="0" max="999" value="200"
+                                                          id="RangeLongdistanceC"
+                                                          oninput="LongdistanceC.value = this.value"
+                                                          onchange="CostumerCost()">
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" value="200" id="LongdistanceC"
+                                                          onchange="CostumerCost()"
+                                                          oninput="RangeLongdistanceC.value = this.value">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="tollC" class="text-left control-label col-sm-5">Toll-free costs</label>
+                            <div class="col-sm-5 control-label">
+                                <input type="range" min="0" max="999" value="200"
+                                                                        id="RtollC"
+                                                                        oninput="tollC.value = this.value"
+                                                                        onchange="CostumerCost()">
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="number" id="tollC" class="form-control"
+                                                                        onchange="CostumerCost()"
+                                                                        oninput="RtollC.value = this.value"
+                                                                        value="200">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phoneNumberC" class="text-left control-label col-sm-5">Phone numbers (DIDs) costs</label>
+                            <div class="col-sm-5 control-label"><input type="range" min="0" max="999" value="200"
+                                                                        id="RphoneNumberC"
+                                                                        oninput="phoneNumberC.value = this.value"
+                                                                        onchange="CostumerCost()"></div>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" id="phoneNumberC" onchange="CostumerCost()"
+                                                          oninput="RphoneNumberC.value = this.value" value="200"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="faxC" class="text-left control-label col-sm-5">Fax Cost</label>
+                            <div class="col-sm-5 control-label"><input type="range" min="0" max="999" value="200"
+                                                                        id="RfaxC"
+                                                                        oninput="faxC.value = this.value"
+                                                                        onchange="CostumerCost()"></div>
+                            <div class="col-sm-2"><input type="number" class="form-control" id="faxC"
+                                                          onchange="CostumerCost()" oninput="RfaxC.value = this.value"
+                                                          value="200"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="button" class="btn btn-primary" value="Previous"
+                                                        onclick="rioPrevPage()">
+                            <input type="button" class="next btn btn-danger pull-right" value="Next"
+                                   onclick="rioNextPage()">
+                        </div>
+                    </form>
+                </fieldset>
+                <fieldset class="rio-page" data-page="4">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <div class="alert alert-warning alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                        aria-hidden="true">×</span></button>
+                                <strong>Warning!</strong> Enter a number, or 0 if not applicable. All fields are
+                                mandatory.
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="ttlC" class="text-left control-label col-sm-5">Telecom Trunk Line</label>
+                            <div class="col-sm-5 control-label"><input type="range" min="0" max="999" value="200"
+                                                                        id="RttlC"
+                                                                        oninput="ttlC.value = this.value"
+                                                                        onchange="CostumerCost()"></div>
+                            <div class="col-sm-2"><input type="number" id="ttlC" class="form-control"
+                                                          onchange="CostumerCost()" oninput="RttlC.value = this.value"
+                                                          value="200"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="msC" class="text-left control-label col-sm-5">Maintenance and support costs</label>
+                            <div class="col-sm-5 control-label"><input type="range" min="0" max="999" value="200"
+                                                                        id="RmsC" oninput="msC.value = this.value"
+                                                                        onchange="CostumerCost()"></div>
+                            <div class="col-sm-2"><input type="number" id="msC" class="form-control"
+                                                          onchange="CostumerCost()" oninput="RmsC.value = this.value"
+                                                          value="200"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="additionC" class="text-left control-label col-sm-5">Additional one-time costs</label>
+                            <div class="col-sm-5 control-label"><input type="range" min="0" max="999" value="200"
+                                                                        id="RadditionC"
+                                                                        oninput="additionC.value = this.value"
+                                                                        onchange="CostumerCost()"></div>
+                            <div class="col-sm-2"><input type="number" id="additionC" class="form-control"
+                                                          onchange="CostumerCost()"
+                                                          oninput="RadditionC.value = this.value" value="200"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="leaseC" class="text-left control-label col-sm-5">Lease costs</label>
+                            <div class="col-sm-5 control-label"><input type="range" min="0" max="999" value="200"
+                                                                        id="RleaseC"
+                                                                        oninput="leaseC.value = this.value"
+                                                                        onchange="CostumerCost()"></div>
+                            <div class="col-sm-2"><input type="number" id="leaseC" class="form-control"
+                                                          onchange="CostumerCost()"
+                                                          oninput="RleaseC.value = this.value"
+                                                          value="200"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="staffC" class="text-left control-label col-sm-5">IT Staffing costs (Professional services)</label>
+                            <div class="col-sm-5 control-label"><input type="range" min="0" max="999" value="200"
+                                                                        id="RstaffC"
+                                                                        oninput="staffC.value = this.value"
+                                                                        onchange="CostumerCost()"></div>
+                            <div class="col-sm-2"><input type="number" id="staffC" class="form-control"
+                                                          onchange="CostumerCost()"
+                                                          oninput="RstaffC.value = this.value"
+                                                          value="200"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="button" class="btn btn-primary" value="Previous"
+                                                        onclick="rioPrevPage()">
+                            <a href="#ninja-popup-722"><input type="button" class="next btn btn-danger pull-right"
+                                                              value="View saving Report"
+                                                              onclick="statement();rioNextPage();rioFeedback()"></a>
+                        </div>
+                    </form>
+                </fieldset>
 
-                <label for="msC">Maintenance and support costs</label>
-                <input type="range" min="0" max="999" value="200" id="RmsC" oninput="msC.value = this.value" onchange="CostumerCost()">
-                <input type="number" id="msC" onchange="CostumerCost()" oninput="RmsC.value = this.value" value="200">
-                <br>
+            </div>
 
-                <label for="additionC">Additional one-time costs</label>
-                <input type="range" min="0" max="999" value="200" id="RadditionC" oninput="additionC.value = this.value" onchange="CostumerCost()">
-                <input type="number" id="additionC" onchange="CostumerCost()" oninput="RadditionC.value = this.value" value="200">
-                <br>
+            <div class="col-md-4">
+                <div class="stepform-right rio-page" data-page="bar">
+                    <div class="result">
+                        <p>Phone Savings</p>
+                        <table class="rc-result">
+                            <tbody>
+                            <tr>
+                                <td width="100px"></td>
+                                <td>Office</td>
+                                <td>On-Premise</td>
+                            </tr>
+                            <tr>
+                                <td>Total Monthly Cost</td>
+                                <td><span class="total-monthly-cost">$0</span></td>
+                                <td class="monthly-onPremis">$0</td>
+                            </tr>
+                            <tr>
+                                <td>Your 2-Year Savings</td>
+                                <td>
+        												<span class="CostSaving-absolute">
+        													$0
+        												</span><br>
+        												<span class="CostSaving-persantage">
+        													you save 0$
+        												</span>
+                                </td>
+                                <td></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="stepform-right-buttom">
 
-                <label for="leaseC">Lease costs</label>
-                <input type="range" min="0" max="999" value="200" id="RleaseC" oninput="leaseC.value = this.value" onchange="CostumerCost()">
-                <input type="number" id="leaseC" onchange="CostumerCost()" oninput="RleaseC.value = this.value" value="200">
-                <br>
+                            <input type="radio" name="purch-p" value="longterm-contract" checked id="2year-c"
+                                   onchange="TotalMonthlyCost()">
+                            <label for="2year-c">Monthly, 2-year contract</label>
+                            <div class="check-radio"></div>
+                            <br>
 
-                <label for="staffC">IT Staffing costs (Professional services)</label>
-                <input type="range" min="0" max="999" value="200" id="RstaffC" oninput="staffC.value = this.value" onchange="CostumerCost()">
-                <input type="number" id="staffC" onchange="CostumerCost()" oninput="RstaffC.value = this.value" value="200" >
-                <br>
-
-                <input type="button" class="previous" value="Previous" onclick="rioPrevPage()">
-                <a href="#ninja-popup-722"><input type="button" class="next stepform-red" value="View saving Report" onclick="statement();rioNextPage();rioFeedback()"></a>
-            </fieldset>
-        </div>
-        <div class="stepform-right rio-page" data-page="bar">
-            <div class="result">
-                <p>Phone Savings</p>
-                <table class="rc-result">
-                    <tbody>
-                    <tr>
-                        <td width="100px"></td>
-                        <td>Office</td>
-                        <td>On-Premise</td>
-                    </tr>
-                    <tr>
-                        <td>Total Monthly Cost</td>
-                        <td><span class="total-monthly-cost">$0</span></td>
-                        <td class="monthly-onPremis">$0</td>
-                    </tr>
-                    <tr>
-                        <td>Your 2-Year Savings</td>
-                        <td>
-												<span class="CostSaving-absolute">
-													$0
-												</span><br>
-												<span class="CostSaving-persantage">
-													you save 0$
-												</span>
-                        </td>
-                        <td></td>
-                    </tr>
-                    </tbody>
-                </table>
-                <div class="stepform-right-buttom">
-
-                    <input type="radio" name="purch-p" value="longterm-contract" checked id="2year-c" onchange="TotalMonthlyCost()">
-                    <label for="2year-c">Monthly, 2-year contract</label>
-                    <div class="check-radio"></div>
-                    <br>
-
-                    <input type="radio" name="purch-p" value="no-contract" id="non-c" onchange="TotalMonthlyCost()">
-                    <label for="non-c">Monthly, non contract</label>
+                            <input type="radio" name="purch-p" value="no-contract" id="non-c"
+                                   onchange="TotalMonthlyCost()">
+                            <label for="non-c">Monthly, non contract</label>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
     </div>
     <div class="clearB"></div>
-    <div class="statement rio-page" data-page="5">
-        <h2>Thank you for your interest!</h2>
-        <p>Your report has been sent to you. A solutions specialist will contact you shortly regarding your savings.</p>
-        <table class="statement-table">
-            <tr class="head-td">
-                <td>11-User Phone System Comparison</td>
-                <td>Office</td>
-                <td>On-Premise PBX</td>
-            </tr>
-            <tr>
-                <td>Up-Front Costs</td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>On-premise hardware - PBX, server cards<sup>1</sup></td>
-                <td>0$</td>
-                <td>N/A</td>
-            </tr>
-            <tr>
-                <td>PBX software licenses<sup>1</sup></td>
-                <td>0$</td>
-                <td>N/A</td>
-            </tr>
-            <tr>
-                <td>One-time phone cost<sup>2</sup></td>
-                <td>0$</td>
-                <td>N/A</td>
-            </tr>
-            <tr>
-                <td>Setup and implementation per location</td>
-                <td>FREE</td>
-                <td>N/A</td>
-            </tr>
-            <tr>
-                <td>Phone configuration</td>
-                <td>FREE</td>
-                <td>N/A</td>
-            </tr>
-            <tr>
-                <td>Integrations with Microsoft Office and Microsoft Outlook</td>
-                <td>FREE</td>
-                <td>N/A</td>
-            </tr>
-            <tr>
-                <td>Integrations with Box, GoogleDocs, Dropbox</td>
-                <td>FREE</td>
-                <td>N/A</td>
-            </tr>
-            <tr>
-                <td>Monthly Cost</td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Telecom trunk Lines</td>
-                <td>0$</td>
-                <td><span id="ttlC-show"></span></td>
-            </tr>
-            <tr>
-                <td>Lease costs</td>
-                <td>0$</td>
-                <td><span id="leaseC-show"></span></td>
-            </tr>
-            <tr>
-                <td>All Inclusive pricing</td>
-                <td><span class="total-monthly-cost">0$</span></td>
-                <td>N/A</td>
-            </tr>
-            <tr>
-                <td>Unlimited local and long distance calling</td>
-                <td>FREE</td>
-                <td><span id="LongdistanceC-show"></span></td>
-            </tr>
-            <tr>
-                <td>Unlimited Internet fax</td>
-                <td>FREE</td>
-                <td><span id="faxC-show"></span></td>
-            </tr>
-            <tr>
-                <td>Local numbers for each user</td>
-                <td>FREE</td>
-                <td><span id="phoneNumberC-show"></span></td>
-            </tr>
-            <tr>
-                <td>Toll-free number and minutes</td>
-                <td>FREE</td>
-                <td><span id="tollC-show"></span></td>
-            </tr>
-            <tr>
-                <td>24/7 live support</td>
-                <td>FREE</td>
-                <td><span id="msC-show"></span></td>
-            </tr>
-            <tr>
-                <td>"Touch" management on iPhone, Android, and BlackBerry</td>
-                <td>FREE</td>
-                <td>N/A</td>
-            </tr>
-            <tr>
-                <td>Presence across multiple devices<sup>3</sup></td>
-                <td>FREE</td>
-                <td>N/A</td>
-            </tr>
-            <tr>
-                <td>Ongoing system management and configuration</td>
-                <td>FREE</td>
-                <td><span id="staffC-show"></span></td>
-            </tr>
-            <tr>
-                <td>Additional one-time costs</td>
-                <td>FREE</td>
-                <td><span id="additionC-show"></span></td>
-            </tr>
-            <tr >
-                <td style="text-align: right;">Total Monthly Cost</td>
-                <td><span class="total-monthly-cost"></span></td>
-                <td><span class="monthly-onPremis"></span></td>
-            </tr>
-            <tr >
-                <td style="text-align: right;">Total 2-Year Cost</td>
-                <td><span id="l-cost-us"></span></td>
-                <td><span id="l-cost-you"></span></td>
-            </tr>
-            <tr class="head-td">
-                <td style="text-align: right;">Total 2-Year Savings</td>
-                <td>
-                    <span class="CostSaving-absolute"></span><br>
-                    <span class="CostSaving-persantage"></span>
-                </td>
-                <td></td>
-            </tr>
-        </table>
-        <a href="#">Start over</a>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="statement rio-page" data-page="5">
+                <h2 class="text-center">Thank you for your interest!</h2>
+                <p class="text-success"><span class="glyphicon glyphicon-ok"></span> Your report has been sent to you. A
+                    solutions specialist will contact you shortly regarding your savings.</p>
+                <br>
+                <table class="table table-striped table-hover">
+                    <tr class="head-td">
+                        <th>User Phone System Comparison</th>
+                        <th>Office</th>
+                        <th>On-Premise PBX</th>
+                    </tr>
+                    <tr>
+                        <th>Up-Front Costs</th>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>On-premise hardware - PBX, server cards<sup>1</sup></td>
+                        <td>0$</td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <td>PBX software licenses<sup>1</sup></td>
+                        <td>0$</td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <td>One-time phone cost<sup>2</sup></td>
+                        <td>0$</td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <td>Setup and implementation per location</td>
+                        <td>FREE</td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <td>Phone configuration</td>
+                        <td>FREE</td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <td>Integrations with Microsoft Office and Microsoft Outlook</td>
+                        <td>FREE</td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <td>Integrations with Box, GoogleDocs, Dropbox</td>
+                        <td>FREE</td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <td>Monthly Cost</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Telecom trunk Lines</td>
+                        <td>0$</td>
+                        <td><span id="ttlC-show"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Lease costs</td>
+                        <td>0$</td>
+                        <td><span id="leaseC-show"></span></td>
+                    </tr>
+                    <tr>
+                        <td>All Inclusive pricing</td>
+                        <td><span class="total-monthly-cost">0$</span></td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <td>Unlimited local and long distance calling</td>
+                        <td>FREE</td>
+                        <td><span id="LongdistanceC-show"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Unlimited Internet fax</td>
+                        <td>FREE</td>
+                        <td><span id="faxC-show"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Local numbers for each user</td>
+                        <td>FREE</td>
+                        <td><span id="phoneNumberC-show"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Toll-free number and minutes</td>
+                        <td>FREE</td>
+                        <td><span id="tollC-show"></span></td>
+                    </tr>
+                    <tr>
+                        <td>24/7 live support</td>
+                        <td>FREE</td>
+                        <td><span id="msC-show"></span></td>
+                    </tr>
+                    <tr>
+                        <td>"Touch" management on iPhone, Android, and BlackBerry</td>
+                        <td>FREE</td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <td>Presence across multiple devices<sup>3</sup></td>
+                        <td>FREE</td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <td>Ongoing system management and configuration</td>
+                        <td>FREE</td>
+                        <td><span id="staffC-show"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Additional one-time costs</td>
+                        <td>FREE</td>
+                        <td><span id="additionC-show"></span></td>
+                    </tr>
+                    <tr>
+                        <th class="pull-right">Total Monthly Cost</th>
+                        <td><span class="total-monthly-cost"></span></td>
+                        <td><span class="monthly-onPremis"></span></td>
+                    </tr>
+                    <tr>
+                        <th class="pull-right">Total 2-Year Cost</th>
+                        <td><span id="l-cost-us"></span></td>
+                        <td><span id="l-cost-you"></span></td>
+                    </tr>
+                    <tr class="head-td">
+                        <th class="pull-right">Total 2-Year Savings</th>
+                        <td>
+                            <span class="CostSaving-absolute"></span><br>
+                            <span class="CostSaving-persantage"></span>
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+                <a href="#" class="btn btn-primary btn-block">Start over</a>
+            </div>
+        </div>
     </div>
+
 </div>
 
 </div>
