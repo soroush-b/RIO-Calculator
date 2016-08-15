@@ -9,10 +9,10 @@
         $(".rio-page[data-page='" + currentPage + "']").show();
         window.rioNextPage = function (button) {
 // validate a form
-            var emptySelect = $(button).parent().find("select").filter(function () {
+            var emptySelect = $(button).closest('fieldset').find("select").filter(function () {
                 return this.value === "";
             });
-            var emptyInput = $(button).parent().find("input").filter(function () {
+            var emptyInput = $(button).closest('fieldset').find("input").filter(function () {
                 return this.value < 0 || this.value > 999 || this.value === "";
             });
 

@@ -1,115 +1,62 @@
-/*RIO Calculator css*/
-.rio-calc{
-    width: 900px;
-    margin: 10px auto;
-    box-sizing: border-box;
-    padding: 10px;
-    font-family: sans-serif;
-    background-color: transparent;
+/*General*/
+.text-left{
+    text-align: left !important;
 }
-.stepform{
-    padding: 10px;
-    border-radius: 10px;
+.block-bottom{
+    position: absolute;
+    bottom: 0;
 }
-.stepform-left{
-    box-sizing: border-box;
-    width:60%;
-    float: left;
+.block-bottom-rigth{
+    right: 0 !important;
 }
+
+/*RIO GENERAL*/
+.rio-calc fieldset{
+    min-height: 400px;
+    position: relative;
+}
+.rio-page {
+    display: none;
+}
+/*stepform Icon triangle */
 .stepform-right:before{
     content: "";
     display: inline-block;
     width: 0;
     height: 0;
     border-top: 40px solid transparent;
-    border-left: 15px solid #ffffff;
+    border-left: 13px solid #ffffff;
     border-bottom: 40px solid transparent;
     position: absolute;
-    left: -2px;
+    left: 15px;
     top: 148px;
 
-}
-.clearB{
-    clear: both;
 }
 .stepform-right{
     background: url(riocalc.png) no-repeat bottom right #0088CC;
     color: #FFFFFF;
-    float: right;
-    box-sizing: border-box;
-    width: 40%;
-    padding: 10px 4px 10px 27px;
-    min-height: 400px;
-    position: relative;
-    padding-left: 33px !important;
-
-}
-table.rc-result{
-    border-collapse: collapse;
-    width: 100%;
-}
-table.rc-result td{
-    text-align: center;
-    padding: 15px 0;
+    padding:20px 28px;
+    min-height:400px;
 }
 
-.stepform fieldset{
-    background-color: #FFFFFF;
-    box-sizing: border-box;
-    min-height: 400px;
-    position: relative;
-    border:none;
-}
-/*inputs*/
-.stepform input:hover{
-    opacity: 0.8;
-    transition: all 0.3s;
-}
-.stepform input[type=number]{
-    width: 50px;
-    height: 35px;
-    padding-left: 15px;
-    font-size: 12px;
-    font-weight: bold;
-    color: #FFFFFF;
-    background-color: #0088CC;
-    text-align: center;
-    border: none;
-    border-radius: 2px;
-}
-.stepform label{
-    display: inline-block;
-    width: 55%;
-    height: 40px;
-    cursor: pointer;
-}.fieldset-width label{
-     width: 80%;
- }.stepform-right label{
-      width:80%;
-      height: 20px;
-      border-bottom: 1px dotted rgba(255, 255, 255, 0.52);
-  }
-.stepform-right-buttom{
-    margin-top: 45px;
-}
-
-.stepform input[type=range] {
+/*range input style*/
+.rio-calc input[type=range] {
     -webkit-appearance: none;
-    width: 27%;
+    width: 100%;
     margin: 4.05px 0;
     display:inline-block;
 }
-.stepform input[type=range]:focus {
+.rio-calc input[type=range]:focus {
     outline: none;
 }
-.stepform input[type=range]::-webkit-slider-runnable-track {
+.rio-calc input[type=range]::-webkit-slider-runnable-track {
     width: 100%;
     height: 6.9px;
     cursor: pointer;
     background: rgba(52, 152, 219, 0.78);
     border-radius: 0.4px;
 }
-.stepform input[type=range]::-webkit-slider-thumb {
+.rio-calc input[type=range]::-webkit-slider-thumb {
     height: 15px;
     width: 15px;
     border-radius: 15px;
@@ -118,10 +65,10 @@ table.rc-result td{
     -webkit-appearance: none;
     margin-top: -4.05px;
 }
-.stepform input[type=range]:focus::-webkit-slider-runnable-track {
+.rio-calc input[type=range]:focus::-webkit-slider-runnable-track {
     background: rgba(52, 152, 219, 0.78);
 }
-.stepform input[type=range]::-moz-range-track {
+.rio-calc input[type=range]::-moz-range-track {
     width: 100%;
     height: 6.9px;
     cursor: pointer;
@@ -129,14 +76,14 @@ table.rc-result td{
     border-radius: 0.4px;
     border: 0px solid rgba(0, 0, 0, 0);
 }
-.stepform input[type=range]::-moz-range-thumb {
+.rio-calc input[type=range]::-moz-range-thumb {
     height: 15px;
     width: 15px;
     border-radius: 15px;
     background: #2e85bf;
     cursor: pointer;
 }
-.stepform input[type=range]::-ms-track {
+.rio-calc input[type=range]::-ms-track {
     width: 100%;
     height: 6.9px;
     cursor: pointer;
@@ -144,16 +91,16 @@ table.rc-result td{
     border-color: transparent;
     color: transparent;
 }
-.stepform input[type=range]::-ms-fill-lower {
+.rio-calc input[type=range]::-ms-fill-lower {
     background: rgba(52, 152, 219, 0.78);
     border: 0px solid rgba(0, 0, 0, 0);
     border-radius: 0.8px;
 }
-.stepform input[type=range]::-ms-fill-upper {
+.rio-calc input[type=range]::-ms-fill-upper {
     background: rgba(52, 152, 219, 0.78);
     border-radius: 0.8px;
 }
-.stepform input[type=range]::-ms-thumb {
+.rio-calc input[type=range]::-ms-thumb {
     height: 15px;
     width: 15px;
     border-radius: 15px;
@@ -161,100 +108,11 @@ table.rc-result td{
     cursor: pointer;
     height: 6.9px;
 }
-.stepform input[type=range]:focus::-ms-fill-lower {
+.rio-calc input[type=range]:focus::-ms-fill-lower {
     background: rgba(52, 152, 219, 0.78);
 }
-.stepform input[type=range]:focus::-ms-fill-upper {
+.rio-calc input[type=range]:focus::-ms-fill-upper {
     background: rgba(52, 152, 219, 0.78);
-}
-
-.stepform select{
-    width: 180px;
-    color: #FFFFFF;
-    background: transparent;
-    width: 200px;
-    padding: 5px 35px 5px 14px;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    height: 36px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background: url(down-arrow.png) 94% no-repeat #0088CC;
-    background-size: 16px;
-}
-.stepform input[type=button]{
-    box-sizing: border-box;
-    padding: 7px 19px;
-    font-size: 17px;
-    line-height: 1.471;
-    border-radius: 6px;
-    border: none;
-    color: #FFFFFF;
-    background-color: #0088CC;
-    cursor: pointer;
-    min-width: 140px;
-    margin-top: 25px;
-    position: absolute;
-    bottom: 0;
-}
-.stepform input[type=button]:focus{
-    outline: none;
-}
-.stepform input[type=button]:hover{
-    transition: all 0.6s;
-    -webkit-transition: all 0.6s;
-    -moz-transition: all 0.6s;
-    opacity: 0.8;
-
-}
-.stepform-red{
-    background-color: #cc181e !important;
-    right: 15px;
-}
-.stepform input[type=radio]{
-    cursor: pointer;
-}
-
-/*right side*/
-.result p{
-    text-align: center;
-    font-size: 17px;
-    font-weight: bold;
-}
-
-/*statement*/
-.statement h2{
-    text-align: center;
-}
-.statement-table{
-    border-collapse: collapse;
-    width: 100%;
-    background-color: #ffffff;
-    cursor: pointer;
-}
-
-.statement-table th, td {
-    text-align: left;
-    padding: 8px;
-}
-.statement-table tr:hover{
-    opacity: 0.9;
-    transition: all 0.3s;
-}
-.statement-table tr:nth-child(even){
-    background-color: #40B0E4;
-    color: #ffffff;
-}
-.statement-table tr:nth-child(odd){background-color: #41B8EF; color:#ffffff;}
-
-.statement-table .head-td{
-    background-color: #cc181e !important;
-    line-height: 39px;
-}
-.statement-table td:not(:nth-child(1)){
-    text-align: center;
 }
 
 /*progress bar*/
@@ -293,7 +151,7 @@ table.rc-result td{
     position: absolute;
     z-index: 170;
     top: 0px;
-    right: 121px;
+    right: 163px;
     height: 55px;
 }
 .rioProgessbar li:after{
@@ -315,8 +173,4 @@ table.rc-result td{
 }
 .rioProgessbar li.rioactive-p:after{
     background-color: #0088CC !important;
-}
-/*multi page*/
-.rio-page{
-    display:none;
 }
